@@ -3,16 +3,12 @@ import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
 import styles from "./ReportEditor.module.css";
 import PocketBase from "pocketbase";
-import ReactQuill, { Quill } from "react-quill";
-// import ImageUploader from "quill-image-uploader";
 
 import 'quill-image-uploader/dist/quill.imageUploader.min.css';
 
-const pb = new PocketBase("https://theaesthetics.ru");
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
-// Dynamic import to avoid SSR issues with react-quill
-// Add ImageUploader module
-// Quill.register("modules/imageUploader", ImageUploader);
+const pb = new PocketBase("https://theaesthetics.ru");
 
 const ReportEditor: React.FC = () => {
   const [report, setReport] = useState<string>("");
@@ -32,14 +28,6 @@ const ReportEditor: React.FC = () => {
     }
   };
 
-  const uploadImage = async (file: File) => {
-    const formData = new FormData();
-    formData.append("file", file);
-
-    const response = await pb.collection("uploads").create(formData);
-    return response.file.url; // Предполагается, что PB возвращает URL файла
-  };
-
   const modules = {
     toolbar: [
       [{ header: "1" }, { header: "2" }, { font: [] }],
@@ -54,9 +42,6 @@ const ReportEditor: React.FC = () => {
       ["link", "image"],
       ["clean"],
     ],
-    // imageUploader: {
-    //   upload: uploadImage,
-    // },
   };
 
   const handleChange = (value: string) => {
