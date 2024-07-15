@@ -1,0 +1,49 @@
+.editorContainer {
+  background-color: #ffe4e1;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(226, 141, 205);
+}
+
+.quillEditor {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.saveButton {
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.saveButton:hover {
+  transform: scale(1.1);
+}
+
+.reportsContainer {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+.report {
+  background-color: #fff0f5;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.report:hover {
+  transform: scale(1.05);
+}
