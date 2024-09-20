@@ -8,7 +8,7 @@ import 'quill-image-uploader/dist/quill.imageUploader.min.css';
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
-const pb = new PocketBase("https://theaesthetics.ru");
+const pb = new PocketBase("http://theaesthetics.ru");
 
 const ReportEditor: React.FC = () => {
   const [report, setReport] = useState<string>("");
